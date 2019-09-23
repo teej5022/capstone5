@@ -1,0 +1,100 @@
+.navbar {
+    list-style: none;
+    margin: 0; 
+    
+    background: #B7BC75;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+    
+}
+
+.navbar a {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+    font-family: 'Squada One', cursive;
+
+  }
+
+  .navbar a:hover {
+    background-color: #A86565;
+    opacity: 2.0;
+    transition: 2.0s;
+  }  
+
+h1 {
+    text-align: center;
+    color:#f50000;
+    font-family: 'Roboto Slab', serif;}
+
+  
+
+.what {
+  color:#c75d12;
+  font-weight: bold;
+  text-shadow: 1px 1px #1c1515;
+  text-align: center;
+  padding: 30px;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+}
+
+.what-what {
+  color:#c75d12;
+  font-weight: bold;
+  text-shadow: 1px 1px #1c1515;
+  text-align: center;
+  padding: 30px;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+}
+
+.about-me {
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+  color: #ff0099;
+  font-weight: bold;
+  text-shadow: 0px 1px black;
+  
+}
+
+.about-img {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.contact {
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+  color: #ff0099;
+}
+
+p {
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+  color: #ff0099;
+}
+
+.what-what-what {
+  color:#c75d12;
+  font-weight: bold;
+  text-shadow: 1px 1px #1c1515;
+  text-align: center;
+  padding: 30px;
+  font-family: 'Crimson Text', serif;
+  font-size: 35px;
+}
+
+
