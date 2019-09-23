@@ -3,7 +3,7 @@ import { List, arrayMove, } from 'baseui/dnd-list';
 
 import styled from 'styled-components';
 import BackgroundSlider from 'react-background-slider';
-import { faAutoprefixer } from '@fortawesome/free-brands-svg-icons';
+
 
 
 
