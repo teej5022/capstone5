@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from 'axios';
+import Axios from "axios";
 import "./AddPerson.css";
 
 class AddPerson extends Component {
@@ -10,6 +10,7 @@ class AddPerson extends Component {
     };
 
     componentDidMount() {
+        console.log('hi john');
         fetch("https://fathomless-spire-66407.herokuapp.com/todos")
             .then(response => response.json())
             .then(data => this.setState({ todos: data }));
@@ -45,7 +46,7 @@ class AddPerson extends Component {
         })
             .then(data => {
                 this.setState({
-                    name: [...this.state.name, data.data],
+                    todos: [...this.state.todos, data.data],
                     name: ""
                 });
             })
