@@ -7,8 +7,6 @@ import * as actionTypes from "../store/actions";
 
 class Persons extends Component {
 
-
-
     render() {
         return (
             <div>

@@ -1,56 +1,87 @@
 import React, { Component } from "react";
-// import Axios from 'axios';
+import Axios from 'axios';
 import "./AddPerson.css";
 
 class AddPerson extends Component {
     state = {
         name: "",
+        todos: []
 
     };
 
+    componentDidMount() {
+        fetch("https://fathomless-spire-66407.herokuapp.com/todos")
+            .then(response => response.json())
+            .then(data => this.setState({ todos: data }));
+    }
+    renderTodos = () => {
+        return this.state.todos.map(todo => {
+            return (
+                <div className="todo-item">
+                    <p>
+                        {todo.title}
+                    </p>
+                    <button onClick={() => this.deleteItem(todo.id)}>
+                        X
+        </button>
+                </div>
+            );
+        });
+    };
     nameChangedHandler = event => {
         this.setState({ name: event.target.value });
     };
 
-    submitHandler = e => {
-        e.preventDefault()
-        console.log(this.state)
-        fetch('http://localhost:3000/Fellowship/?', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.state.name)
-        }).then(response => {
-            console.log(response)
+    handleSubmit = event => {
+        event.preventDefault();
+        Axios({
+            method: "post",
+            url: "https://fathomless-spire-66407.herokuapp.com/add-todo",
+            headers: { "content-type": "application/json" },
+            data: {
+                title: this.state.name,
+                done: false
+            }
         })
-            .catch(error => {
-                console.log(error)
+            .then(data => {
+                this.setState({
+                    name: [...this.state.name, data.data],
+                    name: ""
+                });
             })
+            .catch(error => console.log(error));
+    };
 
-    }
-
+    deleteItem = id => {
+        fetch(`https://fathomless-spire-66407.herokuapp.com/todo/${id}`, {
+            method: "DELETE"
+        }).then(
+            this.setState({
+                todos: this.state.todos.filter(item => {
+                    return item.id !== id;
+                })
+            })
+        );
+    };
 
     render() {
         return (
             <div className="AddPerson">
-                <form onSubmit={this.submitHandler}>
+                <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         placeholder="Name"
                         onChange={this.nameChangedHandler}
                         value={this.state.name}
                     />
-                </form>
-                <button
-                    onClick={() =>
-                        this.props.personAdded(this.state.name)
-                    }
-                >
-                    Add Me
+                    <button>
+                        Add Me
         </button>
+                </form>
+
+                {this.renderTodos()}
             </div>
+
         );
     }
 }

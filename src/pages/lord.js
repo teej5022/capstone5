@@ -4,11 +4,6 @@ import { List, arrayMove, } from 'baseui/dnd-list';
 import styled from 'styled-components';
 import BackgroundSlider from 'react-background-slider';
 
-
-
-
-
-
 const Characters = styled.div`
     color: #bf1919;
     border: 2px solid black;
